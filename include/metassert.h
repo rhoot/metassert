@@ -34,18 +34,18 @@
 
     Generated asm (VC12, x64):
         ; int a = rand();
-            call	QWORD PTR __imp_rand
-            mov	    DWORD PTR a$[rsp], eax
+            call    QWORD PTR __imp_rand
+            mov     DWORD PTR a$[rsp], eax
 
         ; int b = rand();
-            call	QWORD PTR __imp_rand
-            mov	    DWORD PTR b$[rsp], eax
+            call    QWORD PTR __imp_rand
+            mov     DWORD PTR b$[rsp], eax
 
         ; DEFINE_OPERATOR(==, Equal);
-            cmp	    DWORD PTR a$[rsp], eax
+            cmp     DWORD PTR a$[rsp], eax
 
         ; METASSERT(a == b);
-            je	    $LN102@main
+            je      $LN102@main
 
         ; <failure code>
             ...
