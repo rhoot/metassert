@@ -1,4 +1,4 @@
-// Copyright 2011-2015 Johan Sköld. All rights reserved.
+// Copyright 2015 Johan Sköld. All rights reserved.
 // License: http://www.opensource.org/licenses/BSD-2-Clause
 
 #ifndef METASSERT_H
