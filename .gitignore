@@ -1,0 +1,6 @@
+bin/
+build/
+*.opensdf
+*.sdf
+*.suo
+*.vcxproj.user
