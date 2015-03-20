@@ -52,7 +52,7 @@
 
 */
 
-namespace metassert{
+namespace metassert {
     
 /// Expression taking two components.
 /// - Lhs: Type of the left hand side.
@@ -104,7 +104,7 @@ private:
 };
 
 /// Define a new operator for the Expression builder
-#define DEFINE_OPERATOR(op, name) \
+#define DEFINE_OPERATOR(op, name)                                                                                                               \
     template <typename T1, typename T2> struct name { auto operator()(const T1& a, const T2& b) const -> decltype(a op b) { return a op b; } }; \
     template <typename T1, typename T2> std::ostream& operator<<(std::ostream& os, const name<T1, T2>& o) { os << #op; return os; }             \
     template <typename Lhs, typename Rhs>                                                                                                       \
@@ -113,7 +113,7 @@ private:
         return ExpressionBuilder<Expression<Lhs, Rhs, name<Lhs, Rhs>>>(std::move(expr));                                                        \
     }
 
-/// Expression builder operators
+// Expression builder operators
 DEFINE_OPERATOR(+,  Add);
 DEFINE_OPERATOR(-,  Subtract);
 DEFINE_OPERATOR(*,  Multiply);
@@ -125,13 +125,13 @@ DEFINE_OPERATOR(<=, LessOrEqual);
 DEFINE_OPERATOR(>,  GreaterThan);
 DEFINE_OPERATOR(>=, GreaterOrEqual);
 
-/// Cleanup time!
 #undef DEFINE_OPERATOR
 
 /// Helper struct to begin building an expression
 struct Build { };
 
-template <typename Lhs> ExpressionBuilder<Lhs> operator->* (Build&, const Lhs& lhs) {
+template <typename Lhs>
+ExpressionBuilder<Lhs> operator->* (Build&, const Lhs& lhs) {
     return ExpressionBuilder<Lhs>(lhs);
 }
 
