@@ -71,7 +71,7 @@ public:
     { }
 
     /// Return the result of the operation.
-    operator typename ResultType() const {
+    operator ResultType() const {
         return m_op(m_lhs, m_rhs);
     }
     
